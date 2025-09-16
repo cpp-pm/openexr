@@ -4,6 +4,12 @@
 # We require this to get object library link library support
 cmake_minimum_required(VERSION 3.14)
 
+include("cmake/HunterGate.cmake")
+HunterGate(
+    URL "https://github.com/cpp-pm/hunter/archive/v0.26.4.tar.gz"
+    SHA1 "cbce5a86d4b2295c48552ccf60544158bf8e577f"
+)
+
 if(POLICY CMP0074)
   # enable find_package(<Package>) to use <Package>_ROOT as a hint
   cmake_policy(SET CMP0074 NEW)

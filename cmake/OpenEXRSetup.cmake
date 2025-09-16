@@ -208,6 +208,7 @@ if(NOT OPENEXR_FORCE_INTERNAL_DEFLATE)
   #TODO: ^^ Release should not clone from main, this is a place holder
   set(CMAKE_IGNORE_PATH "${CMAKE_CURRENT_BINARY_DIR}/_deps/deflate-src/config;${CMAKE_CURRENT_BINARY_DIR}/_deps/deflate-build/config")
   # First try cmake config
+  hunter_add_package(libdeflate)
   find_package(libdeflate CONFIG QUIET)
   if(libdeflate_FOUND)
     if(TARGET libdeflate::libdeflate_shared)
@@ -260,6 +261,7 @@ set(OPENEXR_OPENJPH_REPO "https://github.com/aous72/OpenJPH.git" CACHE STRING "O
 set(OPENEXR_OPENJPH_TAG "0.22.0" CACHE STRING "OpenJPH git repo tag")
 
 if (NOT OPENEXR_FORCE_INTERNAL_OPENJPH)
+  hunter_add_package(OpenJPH)
   find_package(openjph CONFIG QUIET)
   if(openjph_FOUND)
     if(openjph_VERSION VERSION_LESS "0.21.0")
@@ -341,6 +343,7 @@ set(OPENEXR_IMATH_TAG "v3.2.1" CACHE STRING "Tag for auto-build of Imath (branch
 if(NOT OPENEXR_FORCE_INTERNAL_IMATH)
   #TODO: ^^ Release should not clone from main, this is a place holder
   set(CMAKE_IGNORE_PATH "${CMAKE_CURRENT_BINARY_DIR}/_deps/imath-src/config;${CMAKE_CURRENT_BINARY_DIR}/_deps/imath-build/config")
+  hunter_add_package(Imath)
   find_package(Imath 3.1 CONFIG QUIET)
   set(CMAKE_IGNORE_PATH)
 endif()
